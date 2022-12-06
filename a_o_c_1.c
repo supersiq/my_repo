@@ -18,6 +18,10 @@ int main(void){
         else
         {
             fscanf(in_file, "%d", &number1);
+            if (in_file == '\n'){
+                i = i - 1;
+                printf("bonjour");
+            }
             printf("Iteration: %d, %d \n",i , number1);
             
         }
