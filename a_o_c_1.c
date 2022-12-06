@@ -3,21 +3,23 @@
 
 int main(void){
 
-    printf("test");
+    printf("test\n");
 
     FILE *in_file;
     int number1;
 
-    in_file = fopen("number.txt", "r");
-    for(int i=0; i!=3; i++){
+    in_file = fopen("input_a_o_c_1.txt", "r");
+    for(int i=0; i!=14; i++){
         if (in_file == NULL)
         {
             printf("Can't open file for reading.\n");
+            return 0;
         }
         else
         {
             fscanf(in_file, "%d", &number1);
-            printf("%d \n", number1);
+            printf("Iteration: %d, %d \n",i , number1);
+            
         }
     }
     fclose(in_file);
