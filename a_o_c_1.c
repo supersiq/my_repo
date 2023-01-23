@@ -17,7 +17,7 @@ int main(void){
         printf("bonjour");
         return 0;
     }
-    printf("i made it here");
+    printf("i made it here  hello   ");
     fclose(in_file);
     return 0;
 }
