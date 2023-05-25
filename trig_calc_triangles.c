@@ -2,67 +2,60 @@
 #include <stdlib.h>
 #include <math.h>
 
-double hypo(double base, double height){
 
+// Takes base and height and returns the hypothenuse.
+double hypo(double base, double height){
     double squared = (pow(base, 2) + pow(height, 2));
     double hypothenuse = sqrt(squared);
-
     return hypothenuse;
+}
+
+// Prints plane data
+int print_plane_data(double plane_height, 
+                     double plane_hypo, 
+                     double plane_base){
+        printf("Plane Height: %.2f\n", plane_height);
+        printf("Plane Hypothenuse: %.2f\n", plane_hypo);
+        printf("Plane Base: %.2f", plane_base);
+    return 0;
+}
+
+//Prints profile data
+int print_profile_data(double profile_height, 
+                       double profile_hypo, 
+                       double profile_base){
+    printf("Profile Height: %.2f\n", profile_height);
+    printf("Profile Hypothenuse: %.2f\n", profile_hypo);
+    printf("Profile Base: %.2f\n", profile_base);
+    return 0;
 }
 
 
 int main (void){
-
-
+    // Initial base length minus the quarter circle cut away part.
     double initial_base = 120 - ((27.5*2)/3.14159265358979323846);
-    // double initial_profile_height = 20;
-
     double profile_base = initial_base;
     double profile_height = 180;
     double profile_hypo;
-    // = hypo(initial_base, profile_height);
-
-
     double plane_base = initial_base;
     double plane_height = 20;
     double plane_hypo;
-    // = hypo(initial_base, plane_height);
-
-
-        int i = 0;
-    while(profile_height >= 80){
-         i = i + 1;
-//        printf("Iteration: %d \n\n", i);
-
-
-        //call function to calculate the hypo of profile
+    // The construction's lowest post.
+    int lowest_post = 80;
+    int i = 0;
+    while(profile_height >= lowest_post){
+        i = i + 1;
+        printf("\n\n\nTriangle: %d \n", i);
+        //Call function to calculate the hypo of profile
         profile_hypo = hypo(profile_base, profile_height);
-        //print profile data
-        printf("\nTriangle #%d \n\nProfile: \n", i);
-        printf("Hypothenuse: %.1f\n", profile_hypo);
-        printf("Base: %.1f\n", profile_base);
-        printf("Height: %.1f\n\n", profile_height);
-
-        //call function to calculate the hypo of plane
+        print_profile_data(profile_height, profile_hypo, profile_base);
+        //Call function to calculate the hypo of plane.
         plane_hypo = hypo(plane_base, plane_height);        
-        //print plane data
-        printf("Plane: \n");
-        printf("Height: %.1f\n", plane_height);
-        printf("Hypothenuse: %.1f\n", plane_hypo);
-        printf("Base: %.1f\n\n______________", plane_base);
-
-        //move profile base to new plane hypo
+        print_plane_data(plane_height, plane_hypo, plane_base);
+        //Move profile base to new plane hypo and adjust heights.
         profile_base = plane_hypo;
-
-
-
         profile_height -= 20;
-//        printf("pr_he: %.f \n", profile_height);
-
         plane_height += 20;
-//        printf("pl_he: %.f \n\n\n", plane_height);
     }
-
-
     return 0;
 }
