@@ -31,7 +31,7 @@ int print_profile_data(double profile_height,
 }
 
 
-int main (void){
+int main (void){            
     // Initial base length minus the quarter circle cut away part.
     double initial_base = 120 - ((27.5*2)/3.14159265358979323846);
     double profile_base = initial_base;
